@@ -1,0 +1,89 @@
+<div class="waste-page-wrapper">
+
+  <aside class="sidebar">
+    <h2 class="logo">Enviro365</h2>
+
+    <nav class="nav-links">
+      <a routerLink="/dashbord">Dashboard</a>
+      <a routerLink="/waste-record">Waste Records</a>
+      <a routerLink="/register">Register User</a>
+      <a routerLink="/login">Logout</a>
+    </nav>
+  </aside>
+
+  <main class="waste-main">
+    <header class="page-header">
+      <div>
+        <h1>Waste Record</h1>
+        <p>Add and manage waste disposal information.</p>
+      </div>
+    </header>
+
+    <section class="waste-content">
+      <div class="waste-card">
+        <h3>Add Waste Record</h3>
+
+        <form (ngSubmit)="saveRecord()">
+          <input
+            type="text"
+            [(ngModel)]="name"
+            name="name"
+            placeholder="Waste name"
+            required
+          />
+
+          <textarea
+            [(ngModel)]="wasteDescription"
+            name="wasteDescription"
+            placeholder="Description"
+            required
+          ></textarea>
+
+          <input
+            type="date"
+            [(ngModel)]="disposedDate"
+            name="disposedDate"
+            required
+          />
+
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              [(ngModel)]="canBeRecycled"
+              name="canBeRecycled"
+            />
+            Recyclable
+          </label>
+
+          <button type="submit">Save Waste Record</button>
+        </form>
+
+        <p class="message">{{ message }}</p>
+      </div>
+
+      <div class="waste-card table-card">
+        <h3>My Waste Records</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Date</th>
+              <th>Recyclable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of wasteRecords">
+              <td>{{ record.name }}</td>
+              <td>{{ record.wasteDescription }}</td>
+              <td>{{ record.disposedDate }}</td>
+              <td>{{ record.canBeRecycled ? 'Yes' : 'No' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+</div>

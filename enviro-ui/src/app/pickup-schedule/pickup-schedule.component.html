@@ -1,0 +1,78 @@
+W<div class="pickup-page-wrapper">
+
+  <aside class="sidebar">
+    <h2 class="logo">Enviro365</h2>
+
+    <nav class="nav-links">
+      <a routerLink="/dashbord">Dashboard</a>
+      <a routerLink="/waste-record">Waste Records</a>
+      <a routerLink="/pickup-schedule">Pickups</a>
+      <a routerLink="/login">Logout</a>
+    </nav>
+  </aside>
+
+  <main class="pickup-main">
+    <header class="page-header">
+      <div>
+        <h1>Pickup Schedule</h1>
+        <p>Schedule and track your waste pickups.</p>
+      </div>
+    </header>
+
+    <section class="pickup-content">
+      <div class="pickup-card">
+        <h3>Schedule Pickup</h3>
+
+        <input
+          type="text"
+          [(ngModel)]="pickupAddress"
+          name="pickupAddress"
+          placeholder="Pickup address"
+          required
+        />
+
+        <input
+          type="date"
+          [(ngModel)]="scheduledPickup"
+          name="pickupDate"
+          required
+        />
+
+        <input
+          type="text"
+          [(ngModel)]="scheduleStatus"
+          name="scheduleStatus"
+          placeholder="Status"
+          required
+        />
+
+        <button type="button" (click)="saveSchedule()">Schedule Pickup</button>
+
+        <p class="message">{{ message }}</p>
+      </div>
+
+      <div class="pickup-card table-card">
+        <h3>My Pickup Requests</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>Date</th>
+            
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pickup of pickupSchedules">
+              <td>{{ pickup.pickupAddress }}</td>
+              <td>{{ pickup.scheduledPickup }}</td>
+              <td>{{ pickup.scheduleStatus }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+</div>

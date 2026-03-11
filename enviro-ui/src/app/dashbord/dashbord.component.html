@@ -1,0 +1,60 @@
+<div class="dashboard-wrapper">
+s
+  <aside class="sidebar">
+    <h2 class="logo">Enviro365</h2>
+
+    <nav class="nav-links">
+      <a routerLink="/dashbord">Dashboard</a>
+      <a routerLink="/waste-record">Waste Records</a>
+      <a routerLink="/register">Register User</a>
+      <a routerLink="/login">Logout</a>
+    </nav>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-header">
+      <div>
+        <h1>Welcome to Enviro365</h1>
+        <p>Manage waste records and sustainability activities.</p>
+      </div>
+    </header>
+
+    <section class="summary-cards">
+      <div class="card">
+        <h3>Total Waste Records</h3>
+        <p>{{ totalWaste }}</p>
+      </div>
+
+      <div class="card">
+        <h3>Recyclable Waste</h3>
+        <p>{{ recyclableWaste }}</p> 
+      </div>
+
+      <div class="card">
+        <h3>Scheduled Pickups</h3>
+       <p>{{ scheduledPickups }}</p>
+      </div>
+    </section>
+
+    <section class="actions-section">
+      <div class="action-card">
+        <h3>Add Waste Record</h3>
+        <p>Create a new waste disposal record.</p>
+        <button routerLink="/waste-record">Go to Waste Form</button>
+      </div>
+
+      <div class="action-card">
+        <h3>View Analytics</h3>
+        <p>See your sustainability performance.</p>
+        <button>Coming Soon</button>
+      </div>
+
+      <div class="action-card">
+        <h3>Manage Pickups</h3>
+        <p>Schedule and track pickups.</p>
+        <button routerLink="/pickup-schedule">Go Pick up Schedules</button>
+      </div>
+    </section>
+  </main>
+
+</div>
